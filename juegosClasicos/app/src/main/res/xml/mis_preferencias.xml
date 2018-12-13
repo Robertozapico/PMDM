@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--prefk para keys, prefs para summarys y preft para titulos -->
+    <!--GENERAL-->
+    <PreferenceCategory
+        android:key="prefk_generales"
+        android:title="@string/preft_generales">
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="prefk_musica"
+            android:summary="@string/prefs_musica"
+            android:title="@string/preft_musica" />
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="prefk_sonidos"
+            android:summary="@string/prefs_sonidos"
+            android:title="@string/preft_sonidos" />
+        <ListPreference
+            android:dialogTitle="@string/preft_dialogTipoReverso"
+            android:entries="@array/tipoReverso"
+            android:entryValues="@array/codigoTipoReverso"
+            android:key="prefk_cambiarreverso"
+            android:summary="@string/prefs_cambiarreverso"
+            android:title="@string/preft_cambiarreverso" />
+    </PreferenceCategory>
+    <!--Guardar puntuacion -->
+    <PreferenceCategory
+        android:key="prefk_guardarPuntuacion"
+        android:title="@string/preft_guardarPuntuacion">
+        <EditTextPreference
+            android:key="prefk_puntosCartas"
+            android:summary="@string/prefs_puntosCartas"
+            android:title="@string/preft_puntosCartas" />
+        <EditTextPreference
+            android:key="prefk_puntosCartaErronea"
+            android:summary="@string/prefs_puntosCartaErronea"
+            android:title="@string/preft_puntosCartaErronea" />
+        <CheckBoxPreference
+            android:key="prefk_ordenarDescendentemente"
+            android:summary="@string/prefs_ordenarDescendentemente"
+            android:title="@string/preft_ordenarDescendentemente" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="my_toolbarInicio" type="id">Juegos Clásicos</item>
+    <item name="my_toolbarOpciones" type="id">Configuración</item>
+    <item name="my_toolbarJuego" type="id">Juegos Clásicos</item>
+</resources>

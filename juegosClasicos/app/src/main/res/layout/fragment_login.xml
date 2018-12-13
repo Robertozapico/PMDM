@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/ivLogoLogin"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="15dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logo"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/tvEmailLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignLeft="@+id/etEmailLogin"
+        android:layout_above="@+id/etEmailLogin"
+        android:text="@string/email"
+        android:layout_alignStart="@+id/etEmailLogin" />
+
+    <EditText
+        android:id="@+id/etEmailLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/tvPasswordLogin"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/tvPasswordLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/etPasswordLogin"
+        android:layout_centerVertical="true"
+        android:text="@string/password" />
+
+    <EditText
+        android:id="@+id/etPasswordLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/etEmailLogin"
+        android:layout_alignRight="@+id/etEmailLogin"
+        android:layout_below="@+id/tvPasswordLogin"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btLoginLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPasswordLogin"
+        android:layout_alignLeft="@+id/etEmailLogin"
+        android:layout_marginLeft="52dp"
+        android:text="@string/login" />
+
+    <Button
+        android:id="@+id/btRegistroLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btLoginLogin"
+        android:layout_alignRight="@+id/etEmailLogin"
+        android:layout_marginRight="52dp"
+        android:text="@string/sign_up" />
+
+</RelativeLayout>

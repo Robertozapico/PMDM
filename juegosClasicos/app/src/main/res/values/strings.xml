@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Juegos Clásicos</string>
+    <string name="settings">settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="sign_up">Registrarme</string>
+    <string name="user">Usuario</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="preft_generales">Generales</string>
+    <string name="preft_musica">Música</string>
+    <string name="prefs_musica">Permite activar la música en el juego</string>
+    <string name="prefs_sonidos">Permite activar si queremos sonidos al tocar las cartas o no</string>
+    <string name="preft_sonidos">Sonidos</string>
+    <string name="preft_cambiarreverso">Cambiar reverso</string>
+    <string name="prefs_cambiarreverso">Elige qué reverso de carta quieres</string>
+    <string name="preft_dialogTipoReverso">Cambiar reverso</string>
+    <string name="preft_guardarPuntuacion">Guardar Puntuación</string>
+    <string name="prefs_puntosCartas">Configura cuánto vale cada carta bien colocada</string>
+    <string name="preft_puntosCartas">Puntos carta colocada</string>
+    <string name="prefs_puntosCartaErronea">Configura cuántos puntos se descontarán cada vez que intentes colocar mal una carta</string>
+    <string name="preft_puntosCartaErronea">Puntos intento erróneo colocar carta</string>
+    <string name="preft_ordenarDescendentemente">ordenar descendentemente</string>
+    <string name="prefs_ordenarDescendentemente">Si se activa el ranking aparecerá ordenado por puntuación descendente. En caso contrario ascendente</string>
+    <string name="btJugarMain">Jugar</string>
+    <string name="btOpcionesMain">Opciones</string>
+    <string name="btCreditosMain">Créditos</string>
+    <string name="btSalirMain">Salir</string>
+    <string name="aceptar_creditos">Aceptar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="highscore">HighScore</string>
+    <string name="score">Score</string>
+</resources>

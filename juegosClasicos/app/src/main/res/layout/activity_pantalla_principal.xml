@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PantallaPrincipal">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbarInicio"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/my_toolbarInicio"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btJugar"
+        android:layout_width="132dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/btJugarMain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/btOpciones"
+        android:layout_width="132dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/btOpcionesMain"
+        app:layout_constraintEnd_toEndOf="@+id/btJugar"
+        app:layout_constraintStart_toStartOf="@+id/btJugar"
+        app:layout_constraintTop_toBottomOf="@+id/btJugar" />
+
+    <Button
+        android:id="@+id/btCreditos"
+        android:layout_width="132dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/btCreditosMain"
+        app:layout_constraintEnd_toEndOf="@+id/btOpciones"
+        app:layout_constraintStart_toStartOf="@+id/btOpciones"
+        app:layout_constraintTop_toBottomOf="@+id/btOpciones" />
+
+    <Button
+        android:id="@+id/btSalir"
+        android:layout_width="132dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/btSalirMain"
+        app:layout_constraintEnd_toEndOf="@+id/btCreditos"
+        app:layout_constraintStart_toStartOf="@+id/btCreditos"
+        app:layout_constraintTop_toBottomOf="@+id/btCreditos" />
+</android.support.constraint.ConstraintLayout>

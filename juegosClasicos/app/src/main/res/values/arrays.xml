@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tipoReverso">
+        <item>Reverso 1</item>
+        <item>Reverso 2</item>
+        <item>Reverso 3</item>
+    </string-array>
+    <string-array name="codigoTipoReverso">
+        <item>Rev1</item>
+        <item>Rev2</item>
+        <item>Rev3</item>
+    </string-array>
+        <array name="imagen_cartas">
+            <item>@drawable/baston</item>
+            <item>@drawable/dos_bastos</item>
+            <item>@drawable/tres_bastos</item>
+            <item>@drawable/cuatro_bastos</item>
+            <item>@drawable/cinco_bastos</item>
+            <item>@drawable/seis_bastos</item>
+            <item>@drawable/siete_bastos</item>
+            <item>@drawable/sota_bastos</item>
+            <item>@drawable/caballo_bastos</item>
+            <item>@drawable/rey_bastos</item>
+            <item>@drawable/espadona</item>
+            <item>@drawable/dos_espadas</item>
+            <item>@drawable/tres_espadas</item>
+            <item>@drawable/cuatro_espadas</item>
+            <item>@drawable/cinco_espadas</item>
+            <item>@drawable/seis_espadas</item>
+            <item>@drawable/siete_espadas</item>
+            <item>@drawable/sota_espadas</item>
+            <item>@drawable/caballo_espadas</item>
+            <item>@drawable/rey_espadas</item>
+            <item>@drawable/copon</item>
+            <item>@drawable/dos_copas</item>
+            <item>@drawable/tres_copas</item>
+            <item>@drawable/cuatro_copas</item>
+            <item>@drawable/cinco_copas</item>
+            <item>@drawable/seis_copas</item>
+            <item>@drawable/siete_copas</item>
+            <item>@drawable/sota_copas</item>
+            <item>@drawable/caballo_copas</item>
+            <item>@drawable/rey_copas</item>
+            <item>@drawable/orona</item>
+            <item>@drawable/dos_oros</item>
+            <item>@drawable/tres_oros</item>
+            <item>@drawable/cuatro_oros</item>
+            <item>@drawable/cinco_oros</item>
+            <item>@drawable/seis_oros</item>
+            <item>@drawable/siete_oros</item>
+            <item>@drawable/sota_oros</item>
+            <item>@drawable/caballo_oros</item>
+            <item>@drawable/rey_oros</item>
+        </array>
+
+        <string-array name="nombre_cartas">
+            <item>As de bastos</item>
+            <item>dos de bastos</item>
+            <item>tres de bastos</item>
+            <item>cuatro de bastos</item>
+            <item>cinco de bastos</item>
+            <item>seis de bastos</item>
+            <item>siete de bastos</item>
+            <item>sota de bastos</item>
+            <item>caballo de bastos</item>
+            <item>rey_de_bastos</item>
+            <item>As de espadas</item>
+            <item>dos de espadas</item>
+            <item>tres de espadas</item>
+            <item>cuatro de espadas</item>
+            <item>cinco de espadas</item>
+            <item>seis de espadas</item>
+            <item>siete de espadas</item>
+            <item>sota de espadas</item>
+            <item>caballo de espadas</item>
+            <item>rey_de_espadas</item>
+            <item>As de copas</item>
+            <item>dos de copas</item>
+            <item>tres de copas</item>
+            <item>cuatro de copas</item>
+            <item>cinco de copas</item>
+            <item>seis de copas</item>
+            <item>siete de copas</item>
+            <item>sota de copas</item>
+            <item>caballo de copas</item>
+            <item>rey_de_copas</item>
+            <item>As de oros</item>
+            <item>dos de oros</item>
+            <item>tres de oros</item>
+            <item>cuatro de oros</item>
+            <item>cinco de oros</item>
+            <item>seis de oros</item>
+            <item>siete de oros</item>
+            <item>sota de oros</item>
+            <item>caballo de oros</item>
+            <item>rey_de_oros</item>
+        </string-array>
+</resources>

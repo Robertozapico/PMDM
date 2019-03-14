@@ -14,6 +14,7 @@ public class Opciones extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opciones);
+
         //Toolbar
         Toolbar myToolbar = findViewById(R.id.my_toolbarOpciones);
         setSupportActionBar(myToolbar);
@@ -28,17 +29,5 @@ public class Opciones extends AppCompatActivity {
                 .commit();
 */
 
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        preferencias = PreferenceManager.getDefaultSharedPreferences(Opciones.this);
-        if(preferencias.getBoolean("prefk_musica", true)){
-
-            startService(new Intent(Opciones.this, Musica.class));
-        }else{
-            stopService(new Intent(Opciones.this, Musica.class));
-        }
     }
 }

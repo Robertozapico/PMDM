@@ -3,6 +3,8 @@ package com.example.alumnop.juegosclasicos;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +16,7 @@ import android.widget.EditText;
 public class RegistroFragment extends Fragment implements View.OnClickListener {
 
     private EditText etNombre, etPassword, etEmail;
-    private Button btRegistrarse;
+    private Button btRegistrarse, btLogin;
     private RegistroListener mListener;
 
     public RegistroFragment() {
@@ -31,19 +33,26 @@ public class RegistroFragment extends Fragment implements View.OnClickListener {
         super.onCreate(savedInstanceState);
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View vistaFragment = inflater.inflate(R.layout.fragment_registro, container, false);
-        etNombre = vistaFragment.findViewById(R.id.etUsuarioRegistro);
-        etPassword = vistaFragment.findViewById(R.id.etPasswordRegistro);
-        etEmail = vistaFragment.findViewById(R.id.etEmailRegistro);
-        btRegistrarse = vistaFragment.findViewById(R.id.btRegistroRegistro);
-        btRegistrarse.setOnClickListener(this);
-        return vistaFragment;
-
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_registro,container,false);
     }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        etNombre = getView().findViewById(R.id.etUsuarioRegistro);
+        etPassword = getView().findViewById(R.id.etPasswordRegistro);
+        etEmail = getView().findViewById(R.id.etEmailRegistro);
+        btRegistrarse = getView().findViewById(R.id.btRegistroRegistro);
+        btLogin = getView().findViewById(R.id.btLoginLogin);
+        btRegistrarse.setOnClickListener(this);
+        btLogin.setOnClickListener(this);
+    }
+
+
 
     public EditText getEtPassword() {
         return etPassword;

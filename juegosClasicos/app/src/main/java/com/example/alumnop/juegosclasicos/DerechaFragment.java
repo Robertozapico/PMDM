@@ -2,6 +2,7 @@ package com.example.alumnop.juegosclasicos;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -25,12 +26,16 @@ import java.util.List;
 public class DerechaFragment extends Fragment {
 
     private DerechaListener mListener;
-    public static List<Carta> cartasFragment = new ArrayList<>();
+    public static List<Carta> cartasFragment;
     private RecyclerView recycler;
     private int cartaEscogida;
 
     public DerechaFragment() {
         // Required empty public constructor
+    }
+
+    public void setCartasFragment(List<Carta> baraja) {
+        this.cartasFragment = baraja;
     }
 
     public DerechaListener getmListener() {
@@ -64,21 +69,21 @@ public class DerechaFragment extends Fragment {
         return cartasFragment;
     }
 
+
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_derecha, container, false);
-        if (v instanceof RecyclerView) {
-            Context context = v.getContext();
-            recycler = (RecyclerView) v;
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View miVista = inflater.inflate(R.layout.fragment_derecha, container, false);
+        return miVista;
+    }
 
-            recycler.setLayoutManager(new GridLayoutManager(context, 9));
-            return recycler;
-        }
-        return null;
-        //return inflater.inflate(R.layout.fragment_derecha, container, false);
-
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Context context = view.getContext();
+        //recycler = (RecyclerView) view;
+        recycler = view.findViewById(R.id.recyclerCartas);
+        recycler.setLayoutManager(new GridLayoutManager(context, 9));
     }
 
     @Override
@@ -89,12 +94,16 @@ public class DerechaFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        final CartasRecyclerView adapter = new CartasRecyclerView(PantallaJuego.cartas);
+        final CartasRecyclerView adapter = new CartasRecyclerView(cartasFragment);
         //recycler.setAdapter(adapter);
         adapter.setMiAdaptadorClick(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                adapter.cambiarCarta(recycler.getChildAdapterPosition(v),v);
+
+                //((AdaptadorCartasRecyclerView.ViewHolder)rvBaraja.getChildViewHolder(v)).rellenarCarta();
+                //cambia la carta del reverso a la imagen al hacer click
+                    adapter.cambiarCarta(recycler.getChildAdapterPosition(v), v);
+
                 if (mListener != null) {
                     mListener.onClickCarta(recycler.getChildAdapterPosition(v));
                 }
@@ -103,7 +112,25 @@ public class DerechaFragment extends Fragment {
         });
         recycler.setAdapter(adapter);
     }
-
+    /*
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        miAdaptador = new AdaptadorCartasRecyclerView(baraja);
+        miAdaptador.addOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (miListener != null) {
+                    int posicion = rvBaraja.getChildAdapterPosition(v);
+                    miListener.interactuarCarta(posicion);
+                    //esta línea adicional se encarga de comprobar si ha de darle la vuelta a la carta o no
+                    ((AdaptadorCartasRecyclerView.ViewHolder)rvBaraja.getChildViewHolder(v)).rellenarCarta();
+                }
+            }
+        });
+        rvBaraja.setAdapter(miAdaptador);
+    }
+*/
     public void setMiEscuchadorClick(DerechaListener mListener) {
         this.mListener = mListener;
     }
@@ -139,4 +166,8 @@ public class DerechaFragment extends Fragment {
         // TODO: Update argument type and name
         void onClickCarta(int numCarta);
     }
+
+    /*public void girarCarta() {
+        imagenCarta.setImageDrawable(unaCarta.getImagenCarta());
+    }*/
 }

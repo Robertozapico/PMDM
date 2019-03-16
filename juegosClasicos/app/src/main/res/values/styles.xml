@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Base.Theme.AppCompat.Light">
@@ -14,5 +14,14 @@
         <item name="android:typeface">monospace</item>
         <item name="android:textSize">12dp</item>
     </style>
-
+    <style name="estiloBotones">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/boton_personalizado</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/yellow</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
 </resources>

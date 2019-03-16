@@ -1,8 +1,12 @@
 package com.example.alumnop.juegosclasicos;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -36,6 +40,10 @@ public class IzquierdaFragment extends Fragment {
     private boolean cartaEscogida, cartaRey;
     public static List<Integer> numerosCogidos = new ArrayList<>();
     private boolean activado1,activado2,activado3,activado4;
+
+    SoundPool efectosSonido = new SoundPool(4, AudioManager.STREAM_MUSIC, 0);
+    int efectoCartas;
+    private SharedPreferences preferencias;
     // Required empty public constructor
     // Inflate the layout for this fragment
 
@@ -160,6 +168,7 @@ public class IzquierdaFragment extends Fragment {
                 imgCarta1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        efectoSonido();
                         if (cartaEscogida == false || !cartasFragment.contains(carta1)) {
                             Drawable paloCarta = cartas.get(carta1).getImagenCarta();
                             imgCarta1.setImageDrawable(paloCarta);
@@ -180,6 +189,7 @@ public class IzquierdaFragment extends Fragment {
                 imgCarta2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        efectoSonido();
                         if (cartaEscogida == false || !cartasFragment.contains(carta2)) {
                             Drawable paloCarta = cartas.get(carta2).getImagenCarta();
                             imgCarta2.setImageDrawable(paloCarta);
@@ -199,6 +209,7 @@ public class IzquierdaFragment extends Fragment {
                 imgCarta3.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        efectoSonido();
                         if (cartaEscogida == false || !cartasFragment.contains(carta3)) {
                             Drawable paloCarta = cartas.get(carta3).getImagenCarta();
                             imgCarta3.setImageDrawable(paloCarta);
@@ -215,6 +226,7 @@ public class IzquierdaFragment extends Fragment {
                 });
             }
             if (activado4 == false) {
+                efectoSonido();
                 imgCarta4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -236,6 +248,7 @@ public class IzquierdaFragment extends Fragment {
             imgCarta5.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    efectoSonido();
                     if (cartaEscogida == false) {
                         while (numerosCogidos.contains(carta5)) {
                             carta5 = (int) (Math.random() * imagenesCartas.size());
@@ -266,6 +279,7 @@ public class IzquierdaFragment extends Fragment {
         }else{
             Toast.makeText(getActivity(), "Has ganado", Toast.LENGTH_SHORT).show();
         }
+
         return vistaFragmentIzquierda;
     }
 
@@ -299,6 +313,8 @@ public class IzquierdaFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        preferencias = PreferenceManager.getDefaultSharedPreferences(context);
+        efectoCartas = efectosSonido.load(context, R.raw.pick_sound, 1);
         if (context instanceof IzquierdaListener) {
             mListener = (IzquierdaListener) context;
         } else {
@@ -327,5 +343,12 @@ public class IzquierdaFragment extends Fragment {
     public interface IzquierdaListener {
         // TODO: Update argument type and name
         void onClickCartaIzq(int idCarta);
+    }
+
+    private void efectoSonido() {
+        boolean sonidoActivado= preferencias.getBoolean("prefk_sonidos", true);
+        if (sonidoActivado) {
+            efectosSonido.play(efectoCartas, 1, 1, 0, 0, 1);
+        }
     }
 }

@@ -3,7 +3,9 @@ package com.example.alumnop.juegosclasicos;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
 import android.media.Image;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +29,9 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
     public static ArrayList<Carta> imagenesCartas = new ArrayList<>();
     private int score = 0;
     private ImageView imgFp;
+    private SoundPool efectosSonido = new SoundPool(4, AudioManager.STREAM_MUSIC, 0);
+    private int efectoCartas;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,29 +49,45 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
         fragmentIzquierda.getTvHighScore().setText("HighScore: " + preferencias.getString("highscore", "0"));
         fragmentIzquierda.getTvScore().setText("Score: " + 0);
         fragmentIzquierda.asignarCartasFragmentIzq(carta1, carta2, carta3, carta4);
+        fragmentDerecha.setCartasFragment(cartas);
+
+
         final View recyclerView = findViewById(R.id.recyclerCartas);
         fragmentIzquierda.setMiEscuchadorClick(new IzquierdaFragment.IzquierdaListener() {
             @Override
             public void onClickCartaIzq(int idCarta) {
+                /*boolean acierto=false;
+                if(acierto) {
+                    adapter.cambiarCarta(recycler.getChildAdapterPosition(v), v);
+                }
+                if (mListener != null) {
+                    mListener.onClickCarta(recycler.getChildAdapterPosition(v));
+                }*/
 
             }
         });
+
 
         fragmentDerecha.setMiEscuchadorClick(new DerechaFragment.DerechaListener() {
             @Override
             public void onClickCarta(int numCarta) {
                 //if (numerosCogidos.size()<36) {
+                efectoSonido();
                     if (fragmentIzquierda.isCartaRey() == false) {
                         if (cartas.get(fragmentIzquierda.getIntCartaEscogida()).getNumeroCarta() == numCarta) {
+                            //estas dos lineas de score da error al recoger el string
+                            //score += Integer.parseInt(preferencias.getString("prefk_puntosCartas", ""));
+
+                            //cartas.get(fragmentIzquierda.getIntCartaEscogida()).setImagenCarta();
+
                             Toast.makeText(PantallaJuego.this, "CORRECTO", Toast.LENGTH_SHORT).show();
-                            score += Integer.parseInt(preferencias.getString("prefk_puntosCartas", ""));
+                            cartas.get(fragmentIzquierda.getIntCartaEscogida()).setCartaGirada(true);
                             fragmentIzquierda.getTvScore().setText("Score: " + score);
-                            fragmentDerecha.getCartasFragment().add(cartas.get(fragmentIzquierda.getIntCartaEscogida()));
                             fragmentIzquierda.setCartaEscogida(false);
                             numerosCogidos.add(cartas.get(fragmentIzquierda.getIntCartaEscogida()).getNumeroCarta());
                             fragmentIzquierda.actualizarCarta5();
                         } else {
-                            score -= Integer.parseInt(preferencias.getString("prefk_puntosCartaErronea", ""));
+                            //score -= Integer.parseInt(preferencias.getString("prefk_puntosCartaErronea", ""));
                             fragmentIzquierda.getTvScore().setText("Score: " + score);
                             Toast.makeText(PantallaJuego.this, "Fallaste", Toast.LENGTH_SHORT).show();
                         }
@@ -75,7 +96,7 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
                 //}
             }
         });
-
+        efectoCartas = efectosSonido.load(this, R.raw.pick_sound, 1);
     }
 
     @Override
@@ -89,14 +110,18 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
         String[] nombres = getResources().getStringArray(R.array.nombre_cartas);
         TypedArray objetos = getResources().obtainTypedArray(R.array.imagen_cartas);
         Drawable[] imagenes = new Drawable[objetos.length()];
-        Drawable reverso = getDrawable(R.drawable.reverso_carta);
         int valorCarta = 0;
         for (int i = 0; i < objetos.length(); i++) {
             imagenes[i] = objetos.getDrawable(i);
         }
-        for (int i = 0; i < nombres.length; i++) {
-            Carta carta = new Carta(nombres[i], imagenes[i], reverso);
-            if (!nombres[i].toString().equals("rey_de_oros") && !nombres[i].toString().equals("rey_de_bastos") && !nombres[i].toString().equals("rey_de_copas") && !nombres[i].toString().equals("rey_de_espadas")) {
+        //Para que no se dupliquen al volver a entrar en la activity
+        if (cartas.size() != 0) {
+            cartas.clear();
+        }
+        for (int i = 0; i < objetos.length(); i++) {
+            Carta carta = new Carta(nombres[i], imagenes[i]);
+            if (!nombres[i].toString().equals("rey_de_oros") && !nombres[i].toString().equals("rey_de_bastos") && !nombres[i].toString().equals("rey_de_copas")
+                    && !nombres[i].toString().equals("rey_de_espadas" )) {
                 carta.setNumeroCarta(valorCarta);
                 valorCarta++;
                 //System.out.println(valorCarta);
@@ -106,6 +131,7 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
             } else {
                 carta.setNumeroCarta(-1);
             }
+
             imagenesCartas.add(carta);
         }
     }
@@ -129,6 +155,16 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
     public void onClickCartaIzq(int idCarta) {
 
     }
+
+
+    private void efectoSonido() {
+        boolean sonidoActivado= preferencias.getBoolean("prefk_sonidos", true);
+        if (sonidoActivado) {
+                efectosSonido.play(efectoCartas, 1, 1, 0, 0, 1);
+        }
+    }
+
+
 
     /*ESTE METODO SIRVE PARA CREAR MENU EN LA TOOLBAR
     @Override

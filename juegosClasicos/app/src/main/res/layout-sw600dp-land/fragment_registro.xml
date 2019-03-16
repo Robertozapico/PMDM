@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/tvUsuarioRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="@string/user"
+        app:layout_constraintEnd_toEndOf="@+id/etUsuarioRegistro"
+        app:layout_constraintHorizontal_bias="0.014"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etUsuarioRegistro"
+        android:layout_width="592dp"
+        android:layout_height="53dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsuarioRegistro" />
+
+
+    <TextView
+        android:id="@+id/tvEmailRegistro"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/email"
+        app:layout_constraintStart_toStartOf="@+id/etUsuarioRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/etUsuarioRegistro" />
+
+    <EditText
+        android:id="@+id/etEmailRegistro"
+        android:layout_width="575dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintStart_toStartOf="@+id/tvUsuarioRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailRegistro" />
+
+    <TextView
+        android:id="@+id/tvPasswordRegistro"
+        android:layout_width="125dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/password"
+        app:layout_constraintStart_toStartOf="@+id/tvUsuarioRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/etEmailRegistro" />
+
+    <EditText
+        android:id="@+id/etPasswordRegistro"
+        android:layout_width="523dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        app:layout_constraintStart_toStartOf="@+id/tvPasswordRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/tvPasswordRegistro" />
+
+    <Button
+        android:id="@+id/btRegistroRegistro"
+        style="@style/estiloBotones"
+        android:layout_width="141dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="44dp"
+        android:text="@string/sign_up"
+        app:layout_constraintStart_toStartOf="@+id/etPasswordRegistro"
+        app:layout_constraintTop_toBottomOf="@+id/etPasswordRegistro" />
+
+    <Button
+        android:id="@+id/btLoginLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPasswordLogin"
+        android:layout_alignLeft="@+id/etEmailLogin"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="17dp"
+        android:visibility="invisible"
+        android:text="@string/login" />
+</android.support.constraint.ConstraintLayout>

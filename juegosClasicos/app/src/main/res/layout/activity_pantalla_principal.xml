@@ -31,23 +31,25 @@
 
     <Button
         android:id="@+id/btJugar"
-        android:layout_width="132dp"
-        android:layout_height="wrap_content"
+        style="@style/estiloBotones"
+        android:layout_width="121dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:text="@string/btJugarMain"
+        android:typeface="sans"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
         android:id="@+id/btOpciones"
-        android:layout_width="132dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        style="@style/estiloBotones"
+        android:layout_width="129dp"
+        android:layout_height="39dp"
         android:text="@string/btOpcionesMain"
         app:layout_constraintEnd_toEndOf="@+id/btJugar"
         app:layout_constraintStart_toStartOf="@+id/btJugar"
@@ -55,8 +57,9 @@
 
     <Button
         android:id="@+id/btCreditos"
-        android:layout_width="132dp"
-        android:layout_height="wrap_content"
+        style="@style/estiloBotones"
+        android:layout_width="131dp"
+        android:layout_height="37dp"
         android:layout_marginTop="8dp"
         android:text="@string/btCreditosMain"
         app:layout_constraintEnd_toEndOf="@+id/btOpciones"
@@ -65,8 +68,9 @@
 
     <Button
         android:id="@+id/btSalir"
-        android:layout_width="132dp"
-        android:layout_height="wrap_content"
+        style="@style/estiloBotones"
+        android:layout_width="117dp"
+        android:layout_height="36dp"
         android:layout_marginTop="8dp"
         android:text="@string/btSalirMain"
         app:layout_constraintEnd_toEndOf="@+id/btCreditos"

@@ -5,13 +5,13 @@ import android.graphics.drawable.Drawable;
 public class Carta {
     private String nombreCarta;
     private Drawable imagenCarta;
-    private Drawable reverso;
+    private boolean cartaGirada;
+
     private int numeroCarta;
 
-    public Carta(String nombreCarta, Drawable imagenCarta, Drawable reverso) {
+    public Carta(String nombreCarta, Drawable imagenCarta) {
         this.nombreCarta = nombreCarta;
         this.imagenCarta = imagenCarta;
-        this.reverso = reverso;
     }
 
     public int getNumeroCarta() {
@@ -20,14 +20,6 @@ public class Carta {
 
     public void setNumeroCarta(int numeroCarta) {
         this.numeroCarta = numeroCarta;
-    }
-
-    public Drawable getReverso() {
-        return reverso;
-    }
-
-    public void setReverso(Drawable reverso) {
-        this.reverso = reverso;
     }
 
     public String getNombreCarta() {
@@ -44,5 +36,13 @@ public class Carta {
 
     public void setImagenCarta(Drawable imagenCarta) {
         this.imagenCarta = imagenCarta;
+    }
+
+    public boolean isCartaGirada() {
+        return cartaGirada;
+    }
+
+    public void setCartaGirada(boolean cartaGirada) {
+        this.cartaGirada = cartaGirada;
     }
 }

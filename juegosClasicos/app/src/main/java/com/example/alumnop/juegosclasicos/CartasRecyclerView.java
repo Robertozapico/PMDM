@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -45,7 +46,9 @@ public class CartasRecyclerView extends RecyclerView.Adapter<CartasRecyclerView.
         Carta carta = cartas.get(pos);
         ImageView ivCarta;
         ivCarta = view.findViewById(R.id.ivCarta);
-        ivCarta.setImageDrawable(carta.getReverso());
+        //if(carta.isCartaGirada()) {
+            ivCarta.setImageDrawable(carta.getImagenCarta());
+        //}
         return carta.getNumeroCarta();
     }
 

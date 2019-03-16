@@ -82,11 +82,28 @@ public class PantallaPrincipal extends AppCompatActivity /*implements View.OnCli
             }
         });
     }
+
     @Override
     protected void onResume() {
         reproductorMusica();
         super.onResume();
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        gestionMusica = new GestionPosicionMusica();
+        IntentFilter pausaMusica = new IntentFilter();
+        pausaMusica.addAction(Musica.PAUSA_MUSICA);
+        registerReceiver(gestionMusica, pausaMusica);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(gestionMusica);
+    }
+
     private void reproductorMusica() {
         preferencias = PreferenceManager.getDefaultSharedPreferences(this);
         boolean activado =  preferencias.getBoolean("prefk_musica", true);
@@ -103,22 +120,6 @@ public class PantallaPrincipal extends AppCompatActivity /*implements View.OnCli
             servicioMusica = null;
         }
     }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        gestionMusica = new GestionPosicionMusica();
-        IntentFilter pausaMusica = new IntentFilter();
-        pausaMusica.addAction(Musica.PAUSA_MUSICA);
-        registerReceiver(gestionMusica, pausaMusica);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        unregisterReceiver(gestionMusica);
-    }
-
-
 
 
 

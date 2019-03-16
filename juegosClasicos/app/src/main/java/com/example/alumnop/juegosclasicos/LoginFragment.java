@@ -3,6 +3,7 @@ package com.example.alumnop.juegosclasicos;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -34,7 +35,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         LoginFragment fragment = new LoginFragment();
         return fragment;
     }
-
+/*
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,6 +48,30 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         btRegistrarse.setOnClickListener(this);
         btLogin.setOnClickListener(this);
         return vistaFragmentLogin;
+    }*/
+
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+@Nullable
+@Override
+public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    return inflater.inflate(R.layout.fragment_login,container,false);
+
+}
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        etPassword = getView().findViewById(R.id.etPasswordLogin);
+        etEmail = getView().findViewById(R.id.etEmailLogin);
+        btRegistrarse = getView().findViewById(R.id.btRegistroLogin);
+        btLogin = getView().findViewById(R.id.btLoginLogin);
+        btRegistrarse.setOnClickListener(this);
+        btLogin.setOnClickListener(this);
     }
 
 
@@ -76,7 +101,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        mListener=null;
     }
 
     @Override

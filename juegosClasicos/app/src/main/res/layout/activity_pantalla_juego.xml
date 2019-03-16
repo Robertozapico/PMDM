@@ -39,14 +39,15 @@
         android:name="com.example.alumnop.juegosclasicos.DerechaFragment"
         android:layout_width="475dp"
         android:layout_height="310dp"
-        android:layout_below="@+id/my_toolbarJuego"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="0dp" />
+        android:layout_marginBottom="0dp"
+        tools:layout="@layout/fragment_derecha"
+        />
     <!--
     <fragment
         android:id="@+id/opcionesFragment"

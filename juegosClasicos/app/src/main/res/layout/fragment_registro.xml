@@ -65,10 +65,21 @@
 
     <Button
         android:id="@+id/btRegistroRegistro"
+        style="@style/estiloBotones"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="15dp"
         android:text="@string/sign_up" />
 
+    <Button
+        android:id="@+id/btLoginLogin"
+        android:layout_width="0dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/etPasswordLogin"
+        android:layout_alignLeft="@+id/etEmailLogin"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="17dp"
+        android:text="@string/login"
+        android:visibility="invisible" />
 </LinearLayout>

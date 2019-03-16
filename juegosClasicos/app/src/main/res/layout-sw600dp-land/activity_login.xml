@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/ivLogoLogin"
+        android:layout_width="138dp"
+        android:layout_height="121dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="442dp"
+        android:layout_marginRight="442dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/logo" />
+
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="com.example.alumnop.juegosclasicos.LoginFragment"
+        android:layout_width="446dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="-2dp"
+        android:layout_marginRight="-2dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toStartOf="@+id/ivLogoLogin"
+        android:layout_toLeftOf="@+id/ivLogoLogin"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/fragment_registro"
+        android:name="com.example.alumnop.juegosclasicos.RegistroFragment"
+        android:layout_width="880dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-438dp"
+        android:layout_marginLeft="-438dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_toEndOf="@+id/ivLogoLogin"
+        android:layout_toRightOf="@+id/ivLogoLogin"
+        tools:layout="@layout/fragment_registro" />
+
+</RelativeLayout>

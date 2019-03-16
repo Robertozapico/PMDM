@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistroFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/tvUsuarioRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/etUsuarioRegistro"
+        android:layout_alignLeft="@+id/etUsuarioRegistro"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="37dp"
+        android:text="@string/user" />
+
+    <EditText
+        android:id="@+id/etUsuarioRegistro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvEmailRegistro"
+        android:layout_alignStart="@+id/tvEmailRegistro"
+        android:layout_alignLeft="@+id/tvEmailRegistro"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="13dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+
+    <TextView
+        android:id="@+id/tvEmailRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etEmailRegistro"
+        android:layout_alignStart="@+id/etEmailRegistro"
+        android:layout_alignLeft="@+id/etEmailRegistro"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/email" />
+
+    <EditText
+        android:id="@+id/etEmailRegistro"
+        android:layout_width="575dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvPasswordRegistro"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="1dp"
+        android:ems="10"
+        android:inputType="textEmailAddress" />
+
+    <TextView
+        android:id="@+id/tvPasswordRegistro"
+        android:layout_width="125dp"
+        android:layout_height="30dp"
+        android:layout_alignStart="@+id/tvEmailRegistro"
+        android:layout_alignLeft="@+id/tvEmailRegistro"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="140dp"
+        android:text="@string/password" />
+
+    <EditText
+        android:id="@+id/etPasswordRegistro"
+        android:layout_width="523dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvPasswordRegistro"
+        android:layout_alignStart="@+id/tvPasswordRegistro"
+        android:layout_alignLeft="@+id/tvPasswordRegistro"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginStart="-3dp"
+        android:layout_marginLeft="-3dp"
+        android:layout_marginTop="-140dp"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:ems="10"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/btRegistroRegistro"
+        style="@style/estiloBotones"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_below="@+id/etPasswordRegistro"
+        android:layout_alignStart="@+id/etPasswordRegistro"
+        android:layout_alignLeft="@+id/etPasswordRegistro"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="9dp"
+        android:text="@string/sign_up" />
+
+    <Button
+        android:id="@+id/btLoginLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etPasswordLogin"
+        android:layout_alignLeft="@+id/etEmailLogin"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="17dp"
+        android:visibility="invisible"
+        android:text="@string/login" />
+</RelativeLayout>

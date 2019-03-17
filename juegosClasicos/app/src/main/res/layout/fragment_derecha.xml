@@ -5,4 +5,10 @@
     android:id="@+id/recyclerCartas"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".DerechaFragment"
+    tools:listitem="@layout/item_lista_cartas"
+    tools:orientation="vertical"
+    tools:layoutManager="android.support.v7.widget.LinearLayoutManager"
     />
+
+

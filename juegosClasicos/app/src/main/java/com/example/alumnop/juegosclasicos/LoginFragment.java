@@ -35,20 +35,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         LoginFragment fragment = new LoginFragment();
         return fragment;
     }
-/*
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View vistaFragmentLogin = inflater.inflate(R.layout.fragment_login, container, false);
-        etPassword = vistaFragmentLogin.findViewById(R.id.etPasswordLogin);
-        etEmail = vistaFragmentLogin.findViewById(R.id.etEmailLogin);
-        btRegistrarse = vistaFragmentLogin.findViewById(R.id.btRegistroLogin);
-        btLogin = vistaFragmentLogin.findViewById(R.id.btLoginLogin);
-        btRegistrarse.setOnClickListener(this);
-        btLogin.setOnClickListener(this);
-        return vistaFragmentLogin;
-    }*/
+
 
 
     @Override

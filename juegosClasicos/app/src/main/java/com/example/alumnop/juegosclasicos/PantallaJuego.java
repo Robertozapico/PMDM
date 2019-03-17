@@ -9,6 +9,7 @@ import android.media.SoundPool;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
@@ -32,6 +33,8 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
     private SoundPool efectosSonido = new SoundPool(4, AudioManager.STREAM_MUSIC, 0);
     private int efectoCartas;
 
+    private CartasRecyclerView adapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,18 +55,9 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
         fragmentDerecha.setCartasFragment(cartas);
 
 
-        final View recyclerView = findViewById(R.id.recyclerCartas);
         fragmentIzquierda.setMiEscuchadorClick(new IzquierdaFragment.IzquierdaListener() {
             @Override
             public void onClickCartaIzq(int idCarta) {
-                /*boolean acierto=false;
-                if(acierto) {
-                    adapter.cambiarCarta(recycler.getChildAdapterPosition(v), v);
-                }
-                if (mListener != null) {
-                    mListener.onClickCarta(recycler.getChildAdapterPosition(v));
-                }*/
-
             }
         });
 
@@ -73,28 +67,45 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
             public void onClickCarta(int numCarta) {
                 //if (numerosCogidos.size()<36) {
                 efectoSonido();
+                fragmentDerecha.setCartaEscogida(numCarta);
+
+
+
                     if (fragmentIzquierda.isCartaRey() == false) {
+
                         if (cartas.get(fragmentIzquierda.getIntCartaEscogida()).getNumeroCarta() == numCarta) {
                             //estas dos lineas de score da error al recoger el string
                             //score += Integer.parseInt(preferencias.getString("prefk_puntosCartas", ""));
 
-                            //cartas.get(fragmentIzquierda.getIntCartaEscogida()).setImagenCarta();
+
+
+                            fragmentDerecha.getCartasFragment().get(numCarta).setCartaGirada(true);
+
+
+
+
+
 
                             Toast.makeText(PantallaJuego.this, "CORRECTO", Toast.LENGTH_SHORT).show();
-                            cartas.get(fragmentIzquierda.getIntCartaEscogida()).setCartaGirada(true);
                             fragmentIzquierda.getTvScore().setText("Score: " + score);
                             fragmentIzquierda.setCartaEscogida(false);
                             numerosCogidos.add(cartas.get(fragmentIzquierda.getIntCartaEscogida()).getNumeroCarta());
                             fragmentIzquierda.actualizarCarta5();
+
+
+
                         } else {
+                            fragmentDerecha.getCartasFragment().get(numCarta).setCartaGirada(false);
                             //score -= Integer.parseInt(preferencias.getString("prefk_puntosCartaErronea", ""));
                             fragmentIzquierda.getTvScore().setText("Score: " + score);
                             Toast.makeText(PantallaJuego.this, "Fallaste", Toast.LENGTH_SHORT).show();
                         }
-                        fragmentDerecha.setCartaEscogida(numCarta);
+
                     }
+
                 //}
             }
+
         });
         efectoCartas = efectosSonido.load(this, R.raw.pick_sound, 1);
     }
@@ -124,10 +135,7 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
                     && !nombres[i].toString().equals("rey_de_espadas" )) {
                 carta.setNumeroCarta(valorCarta);
                 valorCarta++;
-                //System.out.println(valorCarta);
-                //System.out.println(carta.getNumeroCarta());
                 cartas.add(carta);
-                //cartas.add(new Carta(nombres[i], imagenes[i]));
             } else {
                 carta.setNumeroCarta(-1);
             }

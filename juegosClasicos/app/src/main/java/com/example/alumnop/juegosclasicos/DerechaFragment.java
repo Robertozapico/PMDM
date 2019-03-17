@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +30,20 @@ public class DerechaFragment extends Fragment {
     public static List<Carta> cartasFragment;
     private RecyclerView recycler;
     private int cartaEscogida;
+    private CartasRecyclerView adapter;
 
     public DerechaFragment() {
         // Required empty public constructor
     }
 
+
+
     public void setCartasFragment(List<Carta> baraja) {
         this.cartasFragment = baraja;
+    }
+
+    public CartasRecyclerView getAdapter() {
+        return adapter;
     }
 
     public DerechaListener getmListener() {
@@ -94,43 +102,28 @@ public class DerechaFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        final CartasRecyclerView adapter = new CartasRecyclerView(cartasFragment);
+        adapter = new CartasRecyclerView(cartasFragment);
         //recycler.setAdapter(adapter);
         adapter.setMiAdaptadorClick(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //((AdaptadorCartasRecyclerView.ViewHolder)rvBaraja.getChildViewHolder(v)).rellenarCarta();
-                //cambia la carta del reverso a la imagen al hacer click
-                    adapter.cambiarCarta(recycler.getChildAdapterPosition(v), v);
-
                 if (mListener != null) {
                     mListener.onClickCarta(recycler.getChildAdapterPosition(v));
+                    if(cartasFragment.get(cartaEscogida).isCartaGirada()) {
+                        //adapter.cambiarCarta(recycler.getChildAdapterPosition(v), v);
+                        Carta carta = adapter.getCartas().get(recycler.getChildAdapterPosition(v));
+                        ImageView ivCarta;
+                        ivCarta = v.findViewById(R.id.ivCarta);
+                        ivCarta.setImageDrawable(carta.getImagenCarta());
+                    }
                 }
-
             }
         });
         recycler.setAdapter(adapter);
     }
-    /*
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        miAdaptador = new AdaptadorCartasRecyclerView(baraja);
-        miAdaptador.addOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (miListener != null) {
-                    int posicion = rvBaraja.getChildAdapterPosition(v);
-                    miListener.interactuarCarta(posicion);
-                    //esta línea adicional se encarga de comprobar si ha de darle la vuelta a la carta o no
-                    ((AdaptadorCartasRecyclerView.ViewHolder)rvBaraja.getChildViewHolder(v)).rellenarCarta();
-                }
-            }
-        });
-        rvBaraja.setAdapter(miAdaptador);
-    }
-*/
+
+
     public void setMiEscuchadorClick(DerechaListener mListener) {
         this.mListener = mListener;
     }
@@ -167,7 +160,5 @@ public class DerechaFragment extends Fragment {
         void onClickCarta(int numCarta);
     }
 
-    /*public void girarCarta() {
-        imagenCarta.setImageDrawable(unaCarta.getImagenCarta());
-    }*/
+
 }

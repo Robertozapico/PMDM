@@ -23,7 +23,14 @@ public class CartasRecyclerView extends RecyclerView.Adapter<CartasRecyclerView.
     public CartasRecyclerView(List<Carta> cartas, Context context) {
         this.cartas = cartas;
         this.context = context;
+        obtenerReverso();
+
     }
+
+    public CartasRecyclerView() {
+        obtenerReverso();
+    }
+
 
     public List<Carta> getCartas(Context context) {
         return cartas;
@@ -35,19 +42,19 @@ public class CartasRecyclerView extends RecyclerView.Adapter<CartasRecyclerView.
 
     public CartasRecyclerView(List<Carta> cartas) {
         this.cartas = cartas;
+        obtenerReverso();
     }
 
     private void obtenerReverso() {
         SharedPreferences preferencias = PreferenceManager.getDefaultSharedPreferences(context);
-        /*String reverso = preferencias.getString()
-        if (reverso.equals("REV01")) {
+        String reverso = preferencias.getString("prefk_cambiarreverso", "Rev3");
+        if (reverso.equals("Rev1")) {
             reversoCarta = R.drawable.reverso_carta;
-        } else if (reverso.equals("REV02")) {
-            reversoCarta = R.drawable.reverso_carta2;
+        } else if (reverso.equals("Rev2")) {
+            reversoCarta = R.drawable.reverso_hearthstone;
         } else {
-            reversoCarta = R.drawable.reverso_carta3;
-        }*/
-
+            reversoCarta = R.drawable.reverso_magic;
+        }
     }
 
 
@@ -55,8 +62,10 @@ public class CartasRecyclerView extends RecyclerView.Adapter<CartasRecyclerView.
     @NonNull
     @Override
     public CartasRecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_lista_cartas, parent, false);
+
         v.setOnClickListener(onClickListener);
         return new ViewHolder(v);
     }
@@ -65,7 +74,8 @@ public class CartasRecyclerView extends RecyclerView.Adapter<CartasRecyclerView.
     public void onBindViewHolder(@NonNull CartasRecyclerView.ViewHolder holder, int position) {
         Carta carta = cartas.get(position);
         holder.setCarta(carta);
-        //holder.girarCarta();
+        holder.bindCarta();
+        //holder.establecerImagenCarta();
     }
 
     @Override
@@ -100,7 +110,7 @@ public class CartasRecyclerView extends RecyclerView.Adapter<CartasRecyclerView.
         }
 
         public void bindCarta() {
-            if (carta.isCartaGirada()) {
+            if (!carta.isCartaGirada()) {
                 ivCarta.setImageResource(reversoCarta);
             } else {
                 girarCarta();
@@ -113,9 +123,11 @@ public class CartasRecyclerView extends RecyclerView.Adapter<CartasRecyclerView.
         public void setCarta(Carta carta) {
             this.carta = carta;
         }
+
+        }
+
     }
 
 
 
-}
 

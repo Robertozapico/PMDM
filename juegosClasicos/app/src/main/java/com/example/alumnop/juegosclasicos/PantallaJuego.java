@@ -58,6 +58,7 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
         fragmentIzquierda.setMiEscuchadorClick(new IzquierdaFragment.IzquierdaListener() {
             @Override
             public void onClickCartaIzq(int idCarta) {
+
             }
         });
 
@@ -74,18 +75,8 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
                     if (fragmentIzquierda.isCartaRey() == false) {
 
                         if (cartas.get(fragmentIzquierda.getIntCartaEscogida()).getNumeroCarta() == numCarta) {
-                            //estas dos lineas de score da error al recoger el string
-                            //score += Integer.parseInt(preferencias.getString("prefk_puntosCartas", ""));
-
-
-
+                            score += Integer.parseInt(preferencias.getString("prefk_puntosCartas", "0"));
                             fragmentDerecha.getCartasFragment().get(numCarta).setCartaGirada(true);
-
-
-
-
-
-
                             Toast.makeText(PantallaJuego.this, "CORRECTO", Toast.LENGTH_SHORT).show();
                             fragmentIzquierda.getTvScore().setText("Score: " + score);
                             fragmentIzquierda.setCartaEscogida(false);
@@ -96,7 +87,7 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
 
                         } else {
                             fragmentDerecha.getCartasFragment().get(numCarta).setCartaGirada(false);
-                            //score -= Integer.parseInt(preferencias.getString("prefk_puntosCartaErronea", ""));
+                            score -= Integer.parseInt(preferencias.getString("prefk_puntosCartaErronea", "0"));
                             fragmentIzquierda.getTvScore().setText("Score: " + score);
                             Toast.makeText(PantallaJuego.this, "Fallaste", Toast.LENGTH_SHORT).show();
                         }

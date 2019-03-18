@@ -21,7 +21,12 @@
             android:entryValues="@array/codigoTipoReverso"
             android:key="prefk_cambiarreverso"
             android:summary="@string/prefs_cambiarreverso"
-            android:title="@string/preft_cambiarreverso" />
+            android:title="@string/preft_cambiarreverso"
+            android:defaultValue="Rev1"
+            />
+
+
+
     </PreferenceCategory>
     <!--Guardar puntuacion -->
     <PreferenceCategory

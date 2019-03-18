@@ -90,6 +90,7 @@ public class DerechaFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Context context = view.getContext();
         //recycler = (RecyclerView) view;
+
         recycler = view.findViewById(R.id.recyclerCartas);
         recycler.setLayoutManager(new GridLayoutManager(context, 9));
     }
@@ -102,7 +103,7 @@ public class DerechaFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        adapter = new CartasRecyclerView(cartasFragment);
+        adapter = new CartasRecyclerView(cartasFragment, getContext());
         //recycler.setAdapter(adapter);
         adapter.setMiAdaptadorClick(new View.OnClickListener() {
             @Override

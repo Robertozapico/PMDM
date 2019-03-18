@@ -171,7 +171,10 @@ public class IzquierdaFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         efectoSonido();
+
+
                         if (cartaEscogida == false && !cartasFragment.contains(carta1)) {
+                            imgCarta1.setEnabled(false);
                             Drawable paloCarta = cartas.get(carta1).getImagenCarta();
                             imgCarta1.setImageDrawable(paloCarta);
                             Toast.makeText(getActivity(), cartas.get(carta1).getNombreCarta(), Toast.LENGTH_SHORT).show();
@@ -181,18 +184,24 @@ public class IzquierdaFragment extends Fragment {
                             activado1 = true;
                             cantidadCartasPuestas++;
                             numerosCogidos.add(carta1);
+
+
                         } else if (cartaEscogida == true) {
                             Toast.makeText(getActivity(), "Usa la carta ya escogida", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+            }else{
+                Toast.makeText(getActivity(), "Esta carta ya ha sido usada", Toast.LENGTH_SHORT).show();
             }
             if (activado2 == false) {
                 imgCarta2.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         efectoSonido();
+
                         if (cartaEscogida == false && !cartasFragment.contains(carta2)) {
+                            imgCarta2.setEnabled(false);
                             Drawable paloCarta = cartas.get(carta2).getImagenCarta();
                             imgCarta2.setImageDrawable(paloCarta);
                             Toast.makeText(getActivity(), cartas.get(carta2).getNombreCarta(), Toast.LENGTH_SHORT).show();
@@ -213,7 +222,9 @@ public class IzquierdaFragment extends Fragment {
                     @Override
                     public void onClick(View v) {
                         efectoSonido();
+
                         if (cartaEscogida == false && !cartasFragment.contains(carta3)) {
+                            imgCarta3.setEnabled(false);
                             Drawable paloCarta = cartas.get(carta3).getImagenCarta();
                             imgCarta3.setImageDrawable(paloCarta);
                             Toast.makeText(getActivity(), cartas.get(carta3).getNombreCarta(), Toast.LENGTH_SHORT).show();
@@ -231,10 +242,12 @@ public class IzquierdaFragment extends Fragment {
             }
             if (activado4 == false) {
                 efectoSonido();
+
                 imgCarta4.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (cartaEscogida == false && !cartasFragment.contains(carta1)) {
+                            imgCarta4.setEnabled(false);
                             Drawable paloCarta = cartas.get(carta4).getImagenCarta();
                             imgCarta4.setImageDrawable(paloCarta);
                             Toast.makeText(getActivity(), cartas.get(carta4).getNombreCarta(), Toast.LENGTH_SHORT).show();
@@ -254,14 +267,15 @@ public class IzquierdaFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     efectoSonido();
+                    while (numerosCogidos.contains(carta5)) {
+                        carta5 = (int) (Math.random() * imagenesCartas.size());
+                    }
+                    numerosCogidos.add(carta5);
                     if (imagenesCartas.get(carta5).getNumeroCarta() == -1) {
                         Toast.makeText(getActivity(), "No puede usar el rey", Toast.LENGTH_SHORT).show();
                     }
                     if (cartaEscogida == false && !cartaRey) {
-                        while (numerosCogidos.contains(carta5)) {
-                            carta5 = (int) (Math.random() * imagenesCartas.size());
-                        }
-                        numerosCogidos.add(carta5);
+
 
                         Drawable paloCarta = PantallaJuego.imagenesCartas.get(carta5).getImagenCarta();
                         imgCarta5.setImageDrawable(paloCarta);
@@ -273,6 +287,7 @@ public class IzquierdaFragment extends Fragment {
                             cartaEscogida = true;
                             cartaRey = true;
                             Toast.makeText(getActivity(), "No puede usar el rey", Toast.LENGTH_SHORT).show();
+
                             cantidadReyes++;
                         }else{
                             cantidadCartasPuestas++;
@@ -306,6 +321,7 @@ public class IzquierdaFragment extends Fragment {
         if (imagenesCartas.get(carta5).getNumeroCarta() == -1) {
             cartaRey = true;
             cantidadReyes++;
+            System.out.println(activado1);
             Toast.makeText(getActivity(), "No puede usar el rey", Toast.LENGTH_SHORT).show();
             cartaEscogida=false;
         }

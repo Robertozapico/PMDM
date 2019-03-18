@@ -33,4 +33,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="highscore">HighScore</string>
     <string name="score">Score</string>
+    <string name="MenuRank">rankmenu</string>
+    <string name="MenuHome">homemenu</string>
+    <string name="MenuOpciones">settingsmenu</string>
+    <string name="profilemenu">profilemenu</string>
+    <string name="saveChanges">Save</string>
+    <string name="Logout">logout</string>
 </resources>

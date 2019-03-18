@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_perfil"
+        android:icon="@drawable/profileicon"
+        app:showAsAction="always"
+        android:title="@string/profilemenu" />
+    <item
+        android:id="@+id/menu_ranking"
+        android:icon="@drawable/rankicon"
+        app:showAsAction="always"
+        android:title="@string/MenuRank" />
+
+    <item
+        android:id="@+id/menu_principal"
+        android:icon="@drawable/homeicon"
+        app:showAsAction="always"
+        android:title="@string/MenuHome" />
+
+    <item
+        android:id="@+id/menu_configuracion"
+        android:icon="@drawable/settinsicon"
+        app:showAsAction="always"
+        android:title="@string/MenuOpciones" />
+
+    <item
+        android:id="@+id/menuextra_configuracion"
+        android:icon="@drawable/settinsicon"
+        app:showAsAction="never"
+        android:title="@string/MenuOpciones" />
+</menu>

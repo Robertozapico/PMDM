@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerfilActivity">
+
+
+    <ImageView
+        android:id="@+id/ivUserPerfil"
+        android:layout_width="181dp"
+        android:layout_height="170dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="111dp"
+        android:layout_marginLeft="111dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp" />
+
+    <TextView
+        android:id="@+id/tvUserPerfil"
+        android:layout_width="95dp"
+        android:layout_height="27dp"
+        android:layout_below="@+id/ivUserPerfil"
+        android:layout_alignStart="@+id/ivUserPerfil"
+        android:layout_alignLeft="@+id/ivUserPerfil"
+        android:layout_alignBottom="@+id/etUserPerfil"
+        android:layout_marginStart="-98dp"
+        android:layout_marginLeft="-98dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="-7dp"
+        android:layout_toStartOf="@+id/etUserPerfil"
+        android:layout_toLeftOf="@+id/etUserPerfil"
+        android:text="@string/user" />
+
+    <EditText
+        android:id="@+id/etUserPerfil"
+        android:layout_width="242dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivUserPerfil"
+        android:layout_alignStart="@+id/ivUserPerfil"
+        android:layout_alignLeft="@+id/ivUserPerfil"
+        android:layout_alignEnd="@+id/ivUserPerfil"
+        android:layout_alignRight="@+id/ivUserPerfil"
+        android:layout_marginStart="-13dp"
+        android:layout_marginLeft="-13dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="-49dp"
+        android:layout_marginRight="-49dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/etPassPerfil"
+        android:layout_width="231dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etUserPerfil"
+        android:layout_alignStart="@+id/etUserPerfil"
+        android:layout_alignLeft="@+id/etUserPerfil"
+        android:layout_alignEnd="@+id/etUserPerfil"
+        android:layout_alignRight="@+id/etUserPerfil"
+        android:layout_marginStart="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/tvPassPerfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvUserPerfil"
+        android:layout_alignStart="@+id/tvUserPerfil"
+        android:layout_alignLeft="@+id/tvUserPerfil"
+        android:layout_alignBottom="@+id/etPassPerfil"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="9dp"
+        android:layout_toStartOf="@+id/etPassPerfil"
+        android:layout_toLeftOf="@+id/etPassPerfil"
+        android:text="@string/password" />
+
+    <TextView
+        android:id="@+id/tvEmailPerfil"
+        android:layout_width="52dp"
+        android:layout_height="19dp"
+        android:layout_below="@+id/tvPassPerfil"
+        android:layout_alignStart="@+id/tvPassPerfil"
+        android:layout_alignLeft="@+id/tvPassPerfil"
+        android:layout_alignBottom="@+id/etEmailPerfil"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginRight="33dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toStartOf="@+id/etEmailPerfil"
+        android:layout_toLeftOf="@+id/etEmailPerfil"
+        android:text="@string/email" />
+
+    <EditText
+        android:id="@+id/etEmailPerfil"
+        android:layout_width="225dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/etPassPerfil"
+        android:layout_alignStart="@+id/etPassPerfil"
+        android:layout_alignLeft="@+id/etPassPerfil"
+        android:layout_alignEnd="@+id/etPassPerfil"
+        android:layout_alignRight="@+id/etPassPerfil"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginRight="7dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <ImageView
+        android:id="@+id/ivCameraPerfil"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_below="@+id/etEmailPerfil"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="169dp"
+        android:layout_marginLeft="169dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="167dp"
+        android:layout_marginRight="167dp"
+        app:srcCompat="@drawable/cameraicon" />
+
+    <Button
+        android:id="@+id/btGuardarPerfil"
+        android:layout_width="124dp"
+        android:layout_height="46dp"
+        android:layout_below="@+id/ivCameraPerfil"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="@string/saveChanges" />
+</RelativeLayout>

@@ -1,5 +1,6 @@
 package com.example.alumnop.juegosclasicos;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
@@ -11,6 +12,9 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -35,6 +39,40 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
 
     private CartasRecyclerView adapter;
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflador = getMenuInflater();
+        inflador.inflate(R.menu.menu_juego,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent i;
+        switch (item.getItemId()){
+            case R.id.menu_perfil:
+                i = new Intent(PantallaJuego.this, PerfilActivity.class);
+                startActivity(i);
+                return true;
+            case R.id.menu_ranking:
+                i = new Intent(PantallaJuego.this, RankingActivity.class);
+                startActivity(i);
+                return true;
+            case R.id.menu_principal:
+                i = new Intent(PantallaJuego.this, PantallaPrincipal.class);
+                startActivity(i);
+                return true;
+            case R.id.menu_configuracion:
+                i = new Intent(PantallaJuego.this, Opciones.class);
+                startActivity(i);
+                return true;
+            case R.id.menuextra_configuracion:
+                i = new Intent(PantallaJuego.this, Opciones.class);
+                startActivity(i);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +82,8 @@ public class PantallaJuego extends AppCompatActivity implements DerechaFragment.
         asignarCartas();
         cartaCoger = findViewById(R.id.imgIzqCarta5);
         //Toolbar
-        Toolbar myToolbar = findViewById(R.id.my_toolbarJuego);
-        setSupportActionBar(myToolbar);
+        //Toolbar myToolbar = findViewById(R.id.my_toolbarJuego);
+        //setSupportActionBar(myToolbar);
         preferencias = PreferenceManager.getDefaultSharedPreferences(PantallaJuego.this);
         fragmentIzquierda = (IzquierdaFragment) getSupportFragmentManager().findFragmentById(R.id.juegoIzquierdaFragment);
         fragmentDerecha = (DerechaFragment) getSupportFragmentManager().findFragmentById(R.id.juegoDerechaFragment);

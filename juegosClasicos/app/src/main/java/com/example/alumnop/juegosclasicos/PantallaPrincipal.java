@@ -28,10 +28,6 @@ public class PantallaPrincipal extends AppCompatActivity /*implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_principal);
 
-        //Toolbar
-        Toolbar myToolbar = findViewById(R.id.my_toolbarInicio);
-        setSupportActionBar(myToolbar);
-
         //botones
         btJugar = findViewById(R.id.btJugar);
         btOpciones = findViewById(R.id.btOpciones);

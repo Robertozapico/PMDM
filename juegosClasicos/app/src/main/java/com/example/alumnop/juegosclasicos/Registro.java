@@ -32,6 +32,7 @@ public class Registro extends AppCompatActivity implements RegistroFragment.Regi
                     editorPreferencias.putString("username", fragmentRegistro.getEtUsuario().getText().toString());
                     editorPreferencias.putString("userpasswd", fragmentRegistro.getEtPassword().getText().toString());
                     editorPreferencias.putString("usermail", fragmentRegistro.getEtEmail().getText().toString());
+                    editorPreferencias.putString("userfoto", "");
                     editorPreferencias.commit();
                     Toast.makeText(Registro.this, "Se ha creado el usuario", Toast.LENGTH_SHORT).show();
                     finish();

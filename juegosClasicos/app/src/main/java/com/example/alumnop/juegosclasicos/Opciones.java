@@ -15,10 +15,6 @@ public class Opciones extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opciones);
 
-        //Toolbar
-        Toolbar myToolbar = findViewById(R.id.my_toolbarOpciones);
-        setSupportActionBar(myToolbar);
-
 
 
         /*

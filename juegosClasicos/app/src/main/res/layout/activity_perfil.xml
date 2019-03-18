@@ -127,27 +127,20 @@
         android:ems="10"
         android:inputType="textPersonName" />
 
-    <ImageView
-        android:id="@+id/ivCameraPerfil"
+    <Button
+        android:id="@+id/btCameraPerfil"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_below="@+id/etEmailPerfil"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="169dp"
-        android:layout_marginLeft="169dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="167dp"
-        android:layout_marginRight="167dp"
-        app:srcCompat="@drawable/cameraicon" />
+        android:background="@drawable/cameraicon" />
 
     <Button
         android:id="@+id/btGuardarPerfil"
         android:layout_width="124dp"
         android:layout_height="46dp"
-        android:layout_below="@+id/ivCameraPerfil"
+        android:layout_below="@+id/btCameraPerfil"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="@string/saveChanges" />

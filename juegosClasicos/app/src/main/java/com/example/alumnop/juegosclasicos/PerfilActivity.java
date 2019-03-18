@@ -25,11 +25,11 @@ import java.util.Date;
 
 public class PerfilActivity extends AppCompatActivity {
     private EditText etNombre, etPass, etEmail;
-    private ImageView ivFoto, ivCamera;
+    private ImageView ivFoto;
     private SharedPreferences preferencias;
-    private Button btSave;
-    private Uri rutaUri=null;
-    private boolean tomadoFoto=false;
+    private Button btSave, btCamera;
+    private Uri rutaUri = null;
+    private boolean tomadoFoto = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,62 +40,55 @@ public class PerfilActivity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmailPerfil);
         ivFoto = findViewById(R.id.ivUserPerfil);
         btSave = findViewById(R.id.btGuardarPerfil);
-        ivCamera = findViewById(R.id.ivCameraPerfil);
-        ivCamera.setClickable(true);
+        btCamera = findViewById(R.id.btCameraPerfil);
+
 
         preferencias = PreferenceManager.getDefaultSharedPreferences(PerfilActivity.this);
         etNombre.setText(preferencias.getString("username", "*"));
         etPass.setText(preferencias.getString("userpasswd", "*"));
         etEmail.setText(preferencias.getString("usermail", "*"));
-        if(preferencias.getString("userfoto","")==null || preferencias.getString("userfoto","").equals("")){
+        if (preferencias.getString("userfoto", "") == null || preferencias.getString("userfoto", "").equals("")) {
             ivFoto.setImageResource(R.drawable.avatar);
-        }else {
-            rutaUri = Uri.fromFile(new File(preferencias.getString("userfoto","")));
+        } else {
+            rutaUri = Uri.fromFile(new File(preferencias.getString("userfoto", "")));
             ivFoto.setImageURI(rutaUri);
         }
 
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            if(etEmail.getText().toString().isEmpty()||etNombre.getText().toString().isEmpty()||etPass.getText().toString().isEmpty()){
-                Toast.makeText(PerfilActivity.this, "Los campos no pueden estar vacios", Toast.LENGTH_SHORT).show();
-            }else{
-                SharedPreferences.Editor editorPreferencias = preferencias.edit();
-                editorPreferencias.putString("username", etNombre.getText().toString());
-                editorPreferencias.putString("userpasswd", etPass.getText().toString());
-                editorPreferencias.putString("usermail", etEmail.getText().toString());
-                //
-                if(tomadoFoto){
-                editorPreferencias.putString("userfoto", rutaUri.toString());
-                }
+                if (etEmail.getText().toString().isEmpty() || etNombre.getText().toString().isEmpty() || etPass.getText().toString().isEmpty()) {
+                    Toast.makeText(PerfilActivity.this, "Los campos no pueden estar vacios", Toast.LENGTH_SHORT).show();
+                } else {
+                    SharedPreferences.Editor editorPreferencias = preferencias.edit();
+                    editorPreferencias.putString("username", etNombre.getText().toString());
+                    editorPreferencias.putString("userpasswd", etPass.getText().toString());
+                    editorPreferencias.putString("usermail", etEmail.getText().toString());
+                    //
+                    if (tomadoFoto) {
+                        editorPreferencias.putString("userfoto", rutaUri.toString());
+                    }
 
-                editorPreferencias.commit();
-                Toast.makeText(PerfilActivity.this, "Se han salvado los cambios", Toast.LENGTH_SHORT).show();
-            }
+                    editorPreferencias.commit();
+                    Toast.makeText(PerfilActivity.this, "Se han salvado los cambios", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
-        ivCamera.setOnClickListener(new View.OnClickListener() {
+        btCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent camara = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                File foto = gestionarFoto();
-                if (camara.resolveActivity(getPackageManager()) != null) {
-                    if (foto != null) {
-                        rutaUri = Uri.fromFile(foto);
-                        camara.putExtra(MediaStore.EXTRA_OUTPUT, rutaUri);
-                        startActivityForResult(camara, -1);
-                    }
-                }
-                tomadoFoto=true;
+                takePicture();
+                Toast.makeText(PerfilActivity.this, "Se hatomado la foto", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflador = getMenuInflater();
-        inflador.inflate(R.menu.menu_perfil,menu);
+        inflador.inflate(R.menu.menu_perfil, menu);
         return true;
     }
 
@@ -113,17 +106,52 @@ public class PerfilActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private File gestionarFoto() {
-        File directorio = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "FotosJuegosClasicos");
-        if (!directorio.exists()) {
-            if (!directorio.mkdirs()) {
-                return null;
-            }
+
+    private void takePicture() {
+
+        //creo intent que lanza la cámara del dispositivo
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        //compruebo que hay app de cámara en el dispositivo
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            //Obtengo la uri del fichero donde grabaré la foto
+            rutaUri = Uri.fromFile(createOutputPictureFile());
+            //añado al intent esa uri del fichero
+            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, rutaUri);
+            //lanzo el intent para que me abra la cámara
+            startActivityForResult(takePictureIntent, -1);
+            tomadoFoto = true;
         }
-        String fechaFoto = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        File fileFoto = new File(directorio.getPath() + File.separator + "Imagen_" + fechaFoto + ".jpg");
-        rutaUri = Uri.fromFile(fileFoto);
-        return fileFoto;
     }
 
+    /**
+     * Método que crea el descriptor del fichero donde se guardará la foto
+     *
+     * @return el descriptor del fichero File creado
+     */
+    private File createOutputPictureFile() {
+        //obtengo el directorio donde guardaré la foto:
+// directorioFotosDelDispositivo/FotosAppExample
+        File picturesDirectory = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES), "FotosJuegosClasicos");
+        if (!picturesDirectory.exists()) {
+            //lo creo
+            if (!picturesDirectory.mkdirs())
+                return null;
+        }
+//uso una marca de tiempo para el nombre del fichero
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        File file = new File(picturesDirectory.getPath() + File.separator + "IMG_" + timeStamp + ".jpg");
+        return file;
+    }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == -1 && resultCode == RESULT_OK) {
+            ivFoto.setImageURI(rutaUri);
+        }
+    }
 }
+
+
+

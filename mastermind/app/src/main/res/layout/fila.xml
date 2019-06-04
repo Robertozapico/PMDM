@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tvNumFila"
+            android:layout_width="66dp"
+            android:layout_height="47dp"
+            android:layout_weight="3"
+            android:gravity="center_horizontal|center_vertical" />
+
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="65dp"
+            android:layout_height="53dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton_juego" />
+
+        <Button
+            android:id="@+id/bt2"
+            android:layout_width="65dp"
+            android:layout_height="53dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton_juego" />
+
+        <Button
+            android:id="@+id/bt3"
+            android:layout_width="65dp"
+            android:layout_height="53dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton_juego" />
+
+        <Button
+            android:id="@+id/bt4"
+            android:layout_width="65dp"
+            android:layout_height="53dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton_juego" />
+
+        <RelativeLayout
+            android:layout_width="72dp"
+            android:layout_height="59dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/ivFondoMadera"
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/fondo_madera" />
+
+            <ImageView
+                android:id="@+id/ivCirculito1"
+                android:layout_width="14dp"
+                android:layout_height="10dp"
+                android:layout_alignStart="@+id/ivFondoMadera"
+                android:layout_alignLeft="@+id/ivFondoMadera"
+                android:layout_alignBottom="@+id/ivFondoMadera"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="32dp"
+                app:srcCompat="@drawable/ficha_negra" />
+
+            <ImageView
+                android:id="@+id/ivCirculito3"
+                android:layout_width="14dp"
+                android:layout_height="10dp"
+                android:layout_alignBottom="@+id/ivCirculito1"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="-1dp"
+                android:layout_toEndOf="@+id/ivCirculito2"
+                android:layout_toRightOf="@+id/ivCirculito2"
+                app:srcCompat="@drawable/ficha_negra" />
+
+            <ImageView
+                android:id="@+id/ivCirculito4"
+                android:layout_width="14dp"
+                android:layout_height="11dp"
+                android:layout_alignTop="@+id/ivCirculito2"
+                android:layout_alignBottom="@+id/ivFondoMadera"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="18dp"
+                android:layout_toEndOf="@+id/ivCirculito1"
+                android:layout_toRightOf="@+id/ivCirculito1"
+                app:srcCompat="@drawable/ficha_negra" />
+
+            <ImageView
+                android:id="@+id/ivCirculito2"
+                android:layout_width="14dp"
+                android:layout_height="10dp"
+                android:layout_alignStart="@+id/ivFondoMadera"
+                android:layout_alignLeft="@+id/ivFondoMadera"
+                android:layout_alignBottom="@+id/ivFondoMadera"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="19dp"
+                app:srcCompat="@drawable/ficha_negra" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".FragmentDerecha">
+
+    <Button
+        android:id="@+id/ficha1"
+        style="@style/estiloFichaVerde"
+        android:layout_width="49dp"
+        android:layout_height="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="78dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp" />
+
+    <Button
+        android:id="@+id/ficha2"
+        style="@style/estiloFichaAmarillo"
+        android:layout_width="49dp"
+        android:layout_height="41dp"
+        android:layout_below="@+id/ficha1"
+        android:layout_alignStart="@+id/ficha1"
+        android:layout_alignLeft="@+id/ficha1"
+        android:layout_alignEnd="@+id/ficha1"
+        android:layout_alignRight="@+id/ficha1"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp" />
+
+    <Button
+        android:id="@+id/ficha3"
+        style="@style/estiloFichaAzul"
+        android:layout_width="49dp"
+        android:layout_height="41dp"
+        android:layout_below="@+id/ficha2"
+        android:layout_alignStart="@+id/ficha2"
+        android:layout_alignLeft="@+id/ficha2"
+        android:layout_alignEnd="@+id/ficha2"
+        android:layout_alignRight="@+id/ficha2"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        />
+
+    <Button
+        android:id="@+id/ficha4"
+        style="@style/estiloFichaRojo"
+        android:layout_width="49dp"
+        android:layout_height="41dp"
+        android:layout_below="@+id/ficha3"
+        android:layout_alignStart="@+id/ficha3"
+        android:layout_alignLeft="@+id/ficha3"
+        android:layout_alignEnd="@+id/ficha3"
+        android:layout_alignRight="@+id/ficha3"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        />
+
+    <Button
+        android:id="@+id/ficha5"
+        style="@style/estiloFichaRosa"
+        android:layout_width="49dp"
+        android:layout_height="41dp"
+        android:layout_below="@+id/ficha4"
+        android:layout_alignStart="@+id/ficha4"
+        android:layout_alignLeft="@+id/ficha4"
+        android:layout_alignEnd="@+id/ficha4"
+        android:layout_alignRight="@+id/ficha4"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"  />
+
+    <Button
+        android:id="@+id/ficha6"
+        style="@style/estiloFichaNaranja"
+        android:layout_width="49dp"
+        android:layout_height="41dp"
+        android:layout_below="@+id/ficha5"
+        android:layout_alignStart="@+id/ficha5"
+        android:layout_alignLeft="@+id/ficha5"
+        android:layout_alignEnd="@+id/ficha5"
+        android:layout_alignRight="@+id/ficha5"
+        android:layout_marginStart="-2dp"
+        android:layout_marginLeft="-2dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"  />
+
+    <Button
+        android:id="@+id/ficha7"
+        style="@style/estiloFichablanca"
+        android:layout_width="76dp"
+        android:layout_height="59dp"
+        android:layout_below="@+id/ficha6"
+        android:layout_alignEnd="@+id/ficha6"
+        android:layout_alignRight="@+id/ficha6"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:text="@string/Check"
+        tools:text="@string/Check" />
+
+    <TextView
+        android:id="@+id/tvFila"
+        android:layout_width="51dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ficha7"
+        android:layout_alignEnd="@+id/ficha7"
+        android:layout_alignRight="@+id/ficha7"
+        android:layout_marginTop="42dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:text="Fila:" />
+
+    <TextView
+        android:id="@+id/tvScore"
+        android:layout_width="71dp"
+        android:layout_height="17dp"
+        android:layout_below="@+id/tvFila"
+        android:layout_alignStart="@+id/tvFila"
+        android:layout_alignLeft="@+id/tvFila"
+        android:layout_alignEnd="@+id/tvFila"
+        android:layout_alignRight="@+id/tvFila"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="-30dp"
+        android:layout_marginRight="-30dp"
+        android:text="Score:" />
+
+    <Button
+        android:id="@+id/btplayagain"
+        style="@style/estiloBotonPlay"
+        android:layout_width="98dp"
+        android:layout_height="92dp"
+        android:layout_below="@+id/tvScore"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="37dp"
+        android:text="@string/playagain"
+        tools:text="@string/playagain" />
+</RelativeLayout>

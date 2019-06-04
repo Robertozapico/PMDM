@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Mastermind</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Play" translatable="false">Play</string>
+    <string name="Check" translatable="false">Check</string>
+    <string name="home">home</string>
+    <string name="Ranking">Ranking</string>
+    <string name="playagain">Volver a jugar</string>
+    <string name="nogamesalert">No se han registrado jugadas</string>
+</resources>
